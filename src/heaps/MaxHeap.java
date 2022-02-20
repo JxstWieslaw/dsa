@@ -80,4 +80,27 @@ public class MaxHeap {
         }
     }
 
+    public int extractMax(){
+        if(size<1){
+            System.out.println("Error: underflow");
+        }
+        int max = heap[1];
+        heap[1]=heap[size];
+        size--;
+        maxHeapify(heap,1);
+        return max;
+    }
+
+    public void increaseKey(int i, int key ){
+        if(key<heap[i]){
+            System.out.println("Key to be updated is already larger!!! ");
+            return;
+        }
+        heap[i]=key;
+        while(i>1 && heap[i/2]<heap[i]){
+            swap(i,i/2);
+            i/=2;
+        }
+    }
+
 }

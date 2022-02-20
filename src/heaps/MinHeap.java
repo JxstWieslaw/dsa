@@ -80,4 +80,26 @@ public class MinHeap {
         }
     }
 
+    public int extractMin(){
+        if(size<1){
+            System.out.println("Error: underflow");
+        }
+        int min = heap[1];
+        heap[1]=heap[size];
+        size--;
+        minHeapify(heap,1);
+        return min;
+    }
+
+    public void decreaseKey(int i, int key ){
+        if(key>heap[i]){
+            System.out.println("Key to be updated is already larger!!! ");
+            return;
+        }
+        heap[i]=key;
+        while(i>1 && heap[i/2]>heap[i]){
+            swap(i,i/2);
+            i/=2;
+        }
+    }
 }
