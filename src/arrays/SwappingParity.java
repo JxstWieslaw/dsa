@@ -29,7 +29,7 @@ public class SwappingParity {
         }
         swap(arr,i,i1);
         swappingParity(arr,j,k);
-    }7
+    }
     public static void main(String[] args) {
         Scanner obj= new Scanner(System.in);
         int []arr= {7,5,9,6,8,0,1};

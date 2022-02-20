@@ -1,15 +1,15 @@
 package heaps;
 
-public class MaxHeap {
+public class MinHeap {
     private int size;
     private int maxsize;
     private int [] heap;
 
-    public MaxHeap(int maxsize) {
+    public MinHeap(int maxsize) {
         this.maxsize=maxsize+1;
         size=0;
         heap= new int[this.maxsize];
-        heap[0]=Integer.MAX_VALUE;
+        heap[0]=Integer.MIN_VALUE;
     }
 
     public void insert(int element) {
@@ -30,7 +30,7 @@ public class MaxHeap {
         else
             return false;
     }
-    public void maxHeapify(int []heap,int i){
+    public void minHeapify(int []heap,int i){
         if(isLeaf(i)){
             return;
         }
@@ -39,38 +39,38 @@ public class MaxHeap {
         int leftChild = 2*i;
 
         if(rightChild<=size){
-            if (heap[i] >= heap[rightChild] && heap[i] >= heap[leftChild]) {
+            if (heap[i] <= heap[rightChild] && heap[i] <= heap[leftChild]) {
                 return;
             }
         }
         else{
-                if(heap[i]>=heap[leftChild]){
+                if(heap[i]<=heap[leftChild]){
                     return;
                 }
         }
 
         int largest;
-        if(leftChild<=size && heap[i]<heap[leftChild]){
+        if(leftChild<=size && heap[i]>heap[leftChild]){
             largest=leftChild;
         }
         else{
             largest=i;
         }
 
-        if(rightChild<=size && heap[largest]<heap[rightChild]){
+        if(rightChild<=size && heap[largest]>heap[rightChild]){
             largest=rightChild;
         }
 
         if(largest!=i){
             swap(i,largest);
         }
-        maxHeapify(heap,largest);
+        minHeapify(heap,largest);
     }
 
     public void buildHeap(){
         int j = (int)Math.floor(size/2.0);
         for(int i=j;i>=1;i--){
-            maxHeapify(heap,i);
+            minHeapify(heap,i);
         }
     }
 

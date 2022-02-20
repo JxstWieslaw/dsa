@@ -1,7 +1,37 @@
 package heaps;
 
+import java.util.Scanner;
+
 public class BuildHeapHeapify_Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter max size of heap: ");
+        int maxsize = sc.nextInt();
 
+//        Max Heap
+//        MaxHeap maxHeap = new MaxHeap(maxsize);
+//        System.out.println("Input Elements! : -->");
+//        for(int i=1;i<=maxsize;i++){
+//            maxHeap.insert(sc.nextInt());
+//        }
+//        System.out.println("Before build heap: ");
+//        maxHeap.printHeap();
+//        maxHeap.buildHeap();
+//        System.out.println("\n");
+//        System.out.println("After build heap: ");
+//        maxHeap.printHeap();
+
+        //Min Heap
+        MinHeap minHeap = new MinHeap(maxsize);
+        System.out.println("Input Elements! : -->");
+        for(int i=1;i<=maxsize;i++){
+            minHeap.insert(sc.nextInt());
+        }
+        System.out.println("Before build heap: ");
+        minHeap.printHeap();
+        minHeap.buildHeap();
+        System.out.println("\n");
+        System.out.println("After build heap: ");
+        minHeap.printHeap();
     }
 }
