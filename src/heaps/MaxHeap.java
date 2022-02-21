@@ -103,4 +103,14 @@ public class MaxHeap {
         }
     }
 
+    public void heapSort() {
+        buildHeap();
+        int length=size;
+        for(int i=size;i>=2;i--){
+            swap(1,i);
+            size--;
+        maxHeapify(heap,1);
+        }
+        size=length;
+    }
 }

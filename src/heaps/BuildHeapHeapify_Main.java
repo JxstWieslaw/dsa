@@ -33,6 +33,10 @@ public class BuildHeapHeapify_Main {
         System.out.println("After increaseKey: ");
         maxHeap.printHeap();
         System.out.println("\n");
+        maxHeap.heapSort();
+        System.out.println("After heapSort: ");
+        maxHeap.printHeap();
+        System.out.println("\n");
 
         System.out.println("//*****************  Min Heap  *************************");
 //        MinHeap minHeap = new MinHeap(maxsize);
@@ -53,6 +57,10 @@ public class BuildHeapHeapify_Main {
         minHeap.decreaseKey(7,4);
         System.out.println("\n");
         System.out.println("After decreaseKey: ");
+        minHeap.printHeap();
+        System.out.println("\n");
+        minHeap.heapSort();
+        System.out.println("After heapSort: ");
         minHeap.printHeap();
         System.out.println("\n");
     }
