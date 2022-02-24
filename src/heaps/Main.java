@@ -1,104 +1,82 @@
 package heaps;
+/*
+Min Heap-Prepbytes
+Given an array containing N integers, your task is to create a min-heap using the elements
+of the given array and print the heap array. Elements needs to be inserted one by one in the heap.
 
+Note: Use heap concepts to solve the problem.
+
+Input Format
+The first line contains an integer T denoting the number of test cases.
+For each of the next T lines,The first line contains an integer
+N denoting the number of elements in the array.The second line contains N space-separated integers.
+ */
 import java.util.*;
 import java.io.*;
 
 public class Main {
+    public static void main(String args[]) throws IOException {
+        Scanner obj = new Scanner(System.in);
+        int t=obj.nextInt();
+        while(t>0){
+            int maxsize = obj.nextInt();
+            MinHeap minHeap = new MinHeap(maxsize);
 
+            for(int i=1;i<=maxsize;i++){
+                minHeap.insert(obj.nextInt());
+            }
+
+            minHeap.printHeap();
+            System.out.println();
+            t--;
+        }
+    }
+}
+
+class MinHeap {
     private int size;
-    private int [] heap;
     private int maxsize;
+    private int [] heap;
 
-    public Main(int maxsize){
-        this.maxsize = maxsize;
+    public MinHeap(int maxsize) {
+        this.maxsize=maxsize+1;
         size=0;
-        heap = new int[this.maxsize+1];
+        heap= new int[this.maxsize];
         heap[0]=Integer.MIN_VALUE;
     }
 
-    public void insert(int element){
+    public void insert(int element) {
         heap[++size]=element;
+        minHeapify(heap,size);
     }
 
-    public boolean isLeaf(int pos){
-        if(pos<=size && pos>size/2){
+    public void swap(int i,int parent){
+
+        int temp = heap[i];
+        heap[i] = heap[parent];
+        heap[parent] = temp;
+
+    }
+
+    public void minHeapify(int []heap,int i){
+        int parent=i/2;//its always going to be true
+        if(isValidParent(parent)){
+            if (heap[i] < heap[parent]) {
+                swap(i,parent);
+                minHeapify(heap,parent);
+            }
+        }
+    }
+
+    private boolean isValidParent(int parent) {
+        if(parent>=0)
             return true;
-        }
-        else
-            return false;
-    }
-
-    public void swap(int i,int largest){
-        int temp=heap[i];
-        heap[i]=heap[largest];
-        heap[largest]=temp;
-    }
-    public void buildHeap(){
-
-        int length = (int)Math.floor(size/2.0);
-
-        for(int i=length;i>=1;i--){
-            minHeapify(heap,i);
-        }
-
-    }
-
-    public void minHeapify(int [] heap, int i){
-        int rightChild=2*i+1;
-        int leftChild=2*i;
-
-        if(isLeaf(i)){
-            return;
-        }
-        if(rightChild<=size){
-            if(heap[i]<=heap[rightChild] && heap[i]<=heap[leftChild])
-                return;
-        }
-        else{
-            if(heap[i]<=heap[leftChild])
-                return;
-        }
-
-        int largest;
-        if(leftChild<=size && heap[i]>heap[leftChild]){
-            largest=leftChild;
-        }
-        else{
-            largest=i;
-        }
-
-        if(rightChild<=size && heap[largest]>heap[rightChild]){
-            largest=rightChild;
-        }
-
-        if(largest!=i){
-            swap(i,largest);
-        }
-        minHeapify(heap,largest);
+        return false;
     }
 
     public void printHeap(){
         for(int i=1;i<=size;i++){
-            System.out.print(heap[i]+" ");
+            System.out.print(heap[i]+ " " );
         }
-
-    }
-
-
-
-    public static void main(String args[]) throws IOException {
-        Scanner obj = new Scanner(System.in);
-        int t=obj.nextInt();
-        while(t-- >0){
-            int maxsize = obj.nextInt();
-            Main minHeap = new Main(maxsize);
-
-            for(int i=1;i<=maxsize;i++)
-                minHeap.insert(obj.nextInt());
-            minHeap.buildHeap();
-            minHeap.printHeap();
-            System.out.println();
-        }
-
     }
 }
