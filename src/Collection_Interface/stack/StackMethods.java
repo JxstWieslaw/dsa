@@ -1,15 +1,15 @@
-package collections.stack;
+package Collection_Interface.stack;
 
 import java.util.Stack;
 
 public class StackMethods {
     public static void main(String[] args) {
         Stack s = new Stack();
-        s.push("A"); //add object to top
-        s.push("B");
+        System.out.println(s.push("A")); //add object to top
+        System.out.println(s.push("B"));
         s.push(1); //heterogeneous
         System.out.println(s);
-        s.pop();//remove from top
+        System.out.println(s.pop());//remove from top
         System.out.println(s);
         System.out.println(s.peek());//return top element but do not pop/delete
         System.out.println("Stack after peek: "+s);
