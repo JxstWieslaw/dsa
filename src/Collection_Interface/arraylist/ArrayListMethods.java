@@ -1,4 +1,4 @@
-package Collection_Interface.arraylist;
+package collection_interface.arraylist;
 //This Interface includes abstract methods from List and Collection Interface in turn
 
 import java.util.ArrayList;
