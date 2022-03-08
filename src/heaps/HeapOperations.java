@@ -16,20 +16,21 @@ import java.io.*;
 
 public class HeapOperations {
    public static void main(String args[]) throws IOException {
-       Scanner obj = new Scanner(System.in);
-       int t=obj.nextInt();
-       while(t>0){
-           int maxsize = obj.nextInt();
-           MinHeap minHeap = new MinHeap(maxsize);
+       try (Scanner obj = new Scanner(System.in)) {
+        int t=obj.nextInt();
+           while(t>0){
+               int maxsize = obj.nextInt();
+               MinHeap minHeap = new MinHeap(maxsize);
 
-           for(int i=1;i<=maxsize;i++){
-               minHeap.insert(obj.nextInt());
+               for(int i=1;i<=maxsize;i++){
+                   minHeap.insert(obj.nextInt());
+               }
+
+               minHeap.printHeap();
+               System.out.println();
+               t--;
            }
-
-           minHeap.printHeap();
-           System.out.println();
-           t--;
-       }
+    }
    }
 }
 
