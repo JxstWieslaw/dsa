@@ -14,7 +14,7 @@ N denoting the number of elements in the array.The second line contains N space-
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class HeapOperations {
     public static void main(String args[]) throws IOException {
         Scanner obj = new Scanner(System.in);
         int t=obj.nextInt();
