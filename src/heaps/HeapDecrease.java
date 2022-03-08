@@ -4,18 +4,19 @@
 
  public class HeapDecrease {
      public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
-         int t = sc.nextInt();
-         while(t-- >0){
-             int maxsize = sc.nextInt();
-             int key = sc.nextInt();
-             MinHeap minHeap = new MinHeap(maxsize);
-             for(int i=1;i<=maxsize;i++){
-                 minHeap.insert(sc.nextInt());
+         try (Scanner sc = new Scanner(System.in)) {
+            int t = sc.nextInt();
+             while(t-- >0){
+                 int maxsize = sc.nextInt();
+                 int key = sc.nextInt();
+                 MinHeap minHeap = new MinHeap(maxsize);
+                 for(int i=1;i<=maxsize;i++){
+                     minHeap.insert(sc.nextInt());
+                 }
+                 minHeap.decreaseKey(key);
+                 minHeap.printHeap();
              }
-             minHeap.decreaseKey(key);
-             minHeap.printHeap();
-         }
+        }
      }
  }
 
