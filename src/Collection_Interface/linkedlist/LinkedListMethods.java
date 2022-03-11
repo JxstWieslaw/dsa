@@ -15,7 +15,7 @@ public class LinkedListMethods {
         linkedList.remove(3); // Full traversal till node
         System.out.println(linkedList);
         System.out.println("Size of LinkedList: "+ linkedList.size());; //get size of linked List
-        linkedList.add(3, 'Z'); //same backedn ode to add object at specific index
+        linkedList.add(3, 'Z'); //same backend code to add object at specific index
         System.out.println(linkedList);
         //removes element C at its appropriate index returned by .indexOf('C')
         linkedList.remove(linkedList.indexOf('C'));
