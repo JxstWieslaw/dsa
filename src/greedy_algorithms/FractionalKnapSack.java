@@ -1,11 +1,8 @@
 package greedy_algorithms;
 
-import java.net.PortUnreachableException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
-
-import javax.lang.model.util.ElementScanner14;
 
 public class FractionalKnapSack {
     public static void main(String[] args) {
